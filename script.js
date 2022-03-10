@@ -1,4 +1,12 @@
 
+const message = document.querySelector('.start_btn button');
+const message = document.querySelector('.info_box');
+const message = document.querySelector('.button . quits');
+const message = document.querySelector('.buttons .restarts');
+
+
+
+
 let questions = [
     {
         num1: 1,
@@ -45,3 +53,5 @@ let questions = [
         ]
     },
 ]
+
+
