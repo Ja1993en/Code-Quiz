@@ -1,0 +1,92 @@
+body {
+     background-color: rgb(226, 205, 179);
+   
+}
+
+.start_btn,
+.info_box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* CENTERS IN MIDDLE OF PAGE  */
+    transform: translate(-50%, -50%);
+
+}
+
+.start_btn button {
+    background-color: rgb(117, 107, 18);
+    padding: 15px 30px;
+    border-radius: 10px ;
+    border: none;
+    width: 300px;
+    border-color:rgb(37, 31, 9);
+    font-size: 30px;
+    cursor: pointer;
+    /* font-weight: 30px; */
+   /* justify-content: center; */
+}
+
+.start_btn button:hover{
+    display: none; 
+}
+.info_box {
+    width: 500px;
+    background: white;
+    border-radius: 7px;
+    display: none;
+  
+}
+
+.info_box .info_title {
+    height: 60px;
+    width: 100%;
+   border-bottom: 1px solid gold ;
+   text-align: center;
+   font-size: 30px;
+   font-weight: bold;
+
+}
+
+.info_list {
+    text-align: center;
+  
+}
+
+.info_box .buttons, button {
+    text-align: center;
+    padding-bottom: 10px;
+    cursor: pointer; 
+}
+
+.buttons button.quit {
+    padding: 5px 10px;
+    background: rgb(245, 239, 232);
+    border-radius: 7px;
+    border: none;
+
+}
+
+.buttons button.quit:hover {
+    background: rgb(226, 205, 179) ;
+}
+
+.buttons button.restart{
+    padding: 5px 10px;
+    background: rgb(226, 205, 179);
+    border-radius: 7px;
+    border: none;
+}
+
+.buttons button.restart:hover {
+    background: whtie;
+    background: rgb(226, 205, 179);
+}
+
+
+
+
+
+
+
+
+
