@@ -19,7 +19,8 @@ body {
 }
 
 .info_box.activeinfo,
-.quiz_box.activeQuiz{
+.quiz_box.activeQuiz,
+.result_box.activeResult{
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
@@ -69,10 +70,10 @@ body {
 
 }
 
-.info_list {
+.info_box .info_list {
     text-align: center;
-  
 }
+
 
 .info_box .buttons button{
     text-align: center;
@@ -165,7 +166,6 @@ font-weight: 600
 }
 
 
-
 .quiz_box section {
     padding: 25px 30px 20px 30px;
     background: white;
@@ -182,7 +182,7 @@ font-weight: 600
     padding: 20px 0;
     display: block;
 }
-section .option_list .choice{
+section .option_list .option{
     background: rgb(248, 243, 212);
     border: 1px solid gold;
     border-radius: 9px;
@@ -194,16 +194,32 @@ section .option_list .choice{
     cursor: pointer;
 }
 
-section  .option-list .choice:hover{
+section  .option-list .option:hover{
     color: rgb(248, 243, 212);
     background: white;
     border-color: gold
 }
 
-.option_list .choice:last-child {
+.option_list .option:last-child {
     margin-bottom: 0px;
-
 }
+
+.option_list .option.correct{
+color: rgb(226, 205, 179);
+background-color: white;
+border: gold;
+}
+
+.option_list .option.incorrect{
+    color: rgb(102, 73, 38);
+background-color: rgb(128, 88, 28);
+border: gold;
+}
+.option_list .option.disabled{
+    pointer-events: none;
+}
+
+
 .quiz_box footer{
 height: 60px;
 width: 100%;
