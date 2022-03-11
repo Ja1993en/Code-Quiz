@@ -14,22 +14,27 @@ body {
     transform: translate(-50%, -50%);
     box-shadow:  0px 4px 8px 0 black,
                  0px 4px 8px 0 black;
+    transition: all 0.3s ease;
 
 }
 
-.info_box.activeinfo{
+.info_box.activeinfo,
+.quiz_box.activeQuiz{
     z-index: 5;
-    opacity: 0;
+    opacity: 1;
     pointer-events: auto;
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(1); 
 
-}
-/* start button */
+} 
+
+
+
 .start_btn button {
-    background-color: rgb(117, 107, 18);
+    color: rgb(117, 107, 18);
     padding: 15px 30px;
     border-radius: 10px ;
     border: none;
+    outline: none;
     width: 300px;
     border-color:rgb(37, 31, 9);
     font-size: 30px;
@@ -38,9 +43,7 @@ body {
    /* justify-content: center; */
 }
 
-.start_btn button:hover{
-    display: none; 
-}
+
 
 /* quiz rule page */
 .info_box {
@@ -58,7 +61,9 @@ body {
     height: 60px;
     width: 100%;
    border-bottom: 1px solid gold ;
+   display: flex;
    text-align: center;
+   padding: 0 10px;
    font-size: 30px;
    font-weight: bold;
 
@@ -69,10 +74,12 @@ body {
   
 }
 
-.info_box .buttons, button {
+.info_box .buttons button{
     text-align: center;
     padding-bottom: 10px;
     cursor: pointer; 
+    outline: none;
+    transition: all 0.3s ease;
 }
 
 .buttons button.quit {
@@ -84,6 +91,7 @@ body {
 }
 
 .buttons button.quit:hover {
+    color: white;
     background: rgb(226, 205, 179) ;
 }
 
@@ -93,6 +101,7 @@ body {
     border-radius: 7px;
     border: none;
 }
+
 
 .buttons button.restart:hover {
     background: whtie;
@@ -105,7 +114,6 @@ body {
     border-radius: 5px;
     width: 550px; 
     border-radius: 5px;
-    /* display: none; */
     opacity: 0;
     pointer-events: none;
     transform: translate(-50%, -50%) scale(0.9);
@@ -142,11 +150,20 @@ font-weight: 600
 
 }
 
-.quiz_box header .timer .time_text {
-    /* will not be able to hightliht when click off */
+.quiz_box header .timer .timer_text{
     user-select: none;
+    font-size: 18px;
+    }
+
+.quiz_box header .timer .timer_sec{
+    /* will not be able to hightliht when click off */
     background: white;
+    border: 3px solid black;
+    font-weight: 500;
+    height: 30px;
+    width: 45px;
 }
+
 
 
 .quiz_box section {
@@ -156,7 +173,7 @@ font-weight: 600
 
 }
 
-.quiz_box section .questiontext {
+.quiz_box section .question_text {
    font-size: 25px;
    font-weight:  600;
 }
@@ -177,6 +194,12 @@ section .option_list .choice{
     cursor: pointer;
 }
 
+section  .option-list .choice:hover{
+    color: rgb(248, 243, 212);
+    background: white;
+    border-color: gold
+}
+
 .option_list .choice:last-child {
     margin-bottom: 0px;
 
@@ -189,16 +212,16 @@ align-items: center;
 justify-content: space-between;
 }
 
-.quiz_box footer .total_scr span{
+.quiz_box footer .total_que span{
     display: flex;
     user-select: none;
 }
 
-footer .total_scr span p{
+footer .total_que span p{
     font-weight: 500;
     padding: 0 5px;
 }
-footer .total_scr span p:first-child{
+footer .total_que span p:first-child{
     padding-left: 0px;
 
 }
@@ -214,6 +237,7 @@ footer .next_btn{
     border-radius: 8px;
     background: rgb(226, 205, 179);
     cursor: pointer;
+    transform: all 0.3s ease;
 
 }
 
@@ -229,12 +253,16 @@ background-color: rgb(212, 191, 164);;
     border-radius: 5px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: column;
     text-align: center;
     opacity: 0;
     pointer-events: none;
     transform: translate(-50%, -50%) scale(0.9);
+}
+.results_box .complete_text{
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .result_box .score_text span{
@@ -263,6 +291,7 @@ background-color: rgb(212, 191, 164);;
     font-size: 18px;
     border-radius: 5px;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 
