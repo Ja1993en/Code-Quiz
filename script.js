@@ -37,6 +37,7 @@ let que_count = 0;
 let que_num = 1;
 let counter;
 let timeValue = 10;
+let userScore = 0;
 
 
 
@@ -44,6 +45,24 @@ const next_btn = quiz_box.querySelector(".next_btn");
 const result_box = document.querySelector(".result_box");
 const restart_quiz = result_box.querySelector(".buttons .restart");
 const quit_quiz = result_box.querySelector(".buttons .quit");
+
+restart_quiz.onclick = () => {
+  window.location.reload();
+  result_box.classList.add("activeQuiz")
+result_box.classList.remove("activeResults")
+let que_count = 0;
+let que_num = 1;
+let timeValue = 10;
+let userScore = 0;
+showQuestions(que_count);
+queCounter(que_num);
+clearInterval(counter);
+startTimer(timeValue);
+}
+
+quit_quiz.onclick = () => {
+  window.location.reload();
+}
 
 //if Next button Click
 next_btn.onclick = () => {
@@ -66,9 +85,9 @@ function showQuestions(index) {
   const que_text = document.querySelector(".que_text");
   let que_tag = '<span>' + questions[index].num1 + "." + questions[index].question1 + '</span>';
   let option_tag = '<div class="option">' + questions[index].options[0] + '<span></span></div>'
-    + '<div class="option">' + questions[index].options[1] + '<span></span></div>'
-    + '<div class="option">' + questions[index].options[2] + '<span></span></div>'
-    + '<div class="option">' + questions[index].options[3] + '<span></span></div>';
+                   + '<div class="option">' + questions[index].options[1] + '<span></span></div>'
+                   + '<div class="option">' + questions[index].options[2] + '<span></span></div>'
+                    + '<div class="option">' + questions[index].options[3] + '<span></span></div>';
   que_text.innerHTML = que_tag;
   option_list.innerHTML = option_tag;
 
@@ -86,6 +105,8 @@ function optionSelected(answer) {
   let correctAns = questions[que_count].answer;
   let allOptions = option_list.children.length;
   if (userAns == correctAns) {
+    userScore += 1; 
+    console.log(userScore);
     answer.classList.add("correct");
     console.log("Answer is correct");
 
@@ -112,7 +133,17 @@ function showResultBox(){
   info_box.classList.remove("activeinfo"); // hide the info box
   quiz_box.classList.remove("activeQuiz"); // hide the quiz box
   result_box.classList.add("activeResult"); // show Resultbox 
-
+  const scoreText = result_box.querySelector(".score_text")
+  if(userScore > 3){
+    let scoreTag =  '<span> and sorry, You got only <p>'+ userScore +'</p> / <p>' + questions.length +' </p></span>';
+    scoreText.innerHTML = scoreTag;
+  }else if(userScore > 3){
+    let scoreTag =  '<span> and sorry, You got only <p>'+ userScore +'</p> / <p>' + questions.length +' </p></span>';
+    scoreText.innerHTML = scoreTag;
+  }else{
+    let scoreTag =  '<span> and sorry, You got only <p>'+ userScore +'</p> / <p>' + questions.length +' </p></span>';
+    scoreText.innerHTML = scoreTag;
+  }
 }
 
 
@@ -148,53 +179,5 @@ function queCounter(index) {
 
 
 
-
-
-let questions = [
-  {
-    num1: 1,
-    question1: "What does HTML stand for?",
-    answer: "Hyper Text Markup Language",
-    options: [
-      "Hyper Text Meta Language",
-      "Hyper Tool Markup Language",
-      "Hyper Text Multiple Language",
-      "Hyper Text Markup Language",
-    ]
-  },
-  {
-    num1: 2,
-    question1: "What does .unshift do?",
-    answer: "Add element to the beginning of an array",
-    options: [
-      "Add element to the end of an array",
-      "Add element to the beginning of an array",
-      "add indentation to the beginning of an array",
-      "Deletes an array",
-    ]
-  },
-  {
-    num1: 3,
-    question1: "operators used for adding ?",
-    answer: "++",
-    options: [
-      "--",
-      "<=",
-      "=",
-      "++",
-    ]
-  },
-  {
-    num1: 4,
-    question1: "What is CSS used for ?",
-    answer: "style and layout",
-    options: [
-      "style and layout",
-      "functionality",
-      "store data",
-      "All are correct",
-    ]
-  },
-]
 
 
